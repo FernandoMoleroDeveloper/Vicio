@@ -1,0 +1,31 @@
+@import '__variables';
+@import '__mixins';
+
+body {
+background-color: $quaternary-color;
+max-width: 768px;
+}
+
+header{
+    display:flex;
+    justify-content: space-between;
+}
+
+.card {
+   @include flex-center;
+    max-width: 500px;
+    border-radius: 20px;
+    flex-direction: column;
+    
+    &-tertiary{
+        background-color: $tertiary-color;
+    }
+    &__header{
+        display: flex;
+        align-items: center;
+    }
+    &__avatar{
+        height: 30px;
+        border-radius: 100%;
+    }
+}
