@@ -1,31 +1,158 @@
 @import '__variables';
 @import '__mixins';
+@import '__cards';
 
 body {
-background-color: $quaternary-color;
-max-width: 768px;
+	background-color: $bg_color;
+	max-width: 1440px;
+	margin: 50px auto;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 15px;
+	
 }
 
-header{
-    display:flex;
-    justify-content: space-between;
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+
+	&__logo {
+		width: 100px;
+		display: block;
+	}
+
+	&__btn {
+		border-radius: 100%;
+		font-weight: bold;
+		font-size: 14px;
+		background-color: $bg_color;
+		width: 100px;
+		height: 50px;
+		display: block;
+	}
 }
 
-.card {
-   @include flex-center;
-    max-width: 500px;
-    border-radius: 20px;
-    flex-direction: column;
-    
-    &-tertiary{
-        background-color: $tertiary-color;
-    }
-    &__header{
-        display: flex;
-        align-items: center;
-    }
-    &__avatar{
-        height: 30px;
-        border-radius: 100%;
-    }
+.title {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 3em;
+	font-size: 2em;
+	padding: 20px;
+}
+
+.card-list{
+	background-image: url(/assets/burger.png);
+	background-repeat: no-repeat;
+	background-position: 0 10%;
+	@include gridarea (5,1)
+}
+
+.footer{
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 50px;
+
+	&__list--primary {
+		font-size: 20px;
+		font-weight: bold;
+		color: $primary_color;
+		padding: 0;
+	}
+	
+	&__list--secondary {
+		font-size: 14px;
+		font-weight: lighter;
+		color: $quartery_color;
+		padding: 0;
+	}
+}
+
+.footer ul{
+	list-style: none;
+
+}
+
+@media screen and (min-width: 769px) and (max-width:1024px) {
+.card-list{
+	@include gridarea(3,3)
+}
+
+.card--box-a{
+	grid-area: 1 / 1 /span 1 /span 2;
+}
+
+.card--box-b{
+	grid-area: 1 / 3 /span 1 /span 1;
+}
+
+.card--box-c{
+	grid-area: 2 / 1 /span 1 /span 1;
+}
+
+.card--box-d{
+	grid-area: 2 / 2 /span 1 /span 2;
+}
+
+.card--box-e{
+	grid-area: 3 / 1 /span 1 /span 3;
+}
+
+
+.footer{
+	flex-direction: row;
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer ul{
+	list-style: none;
+	display: flex;
+	margin:20px;
+}
+}
+
+@media screen and (min-width: 1025px) and (max-width:1440px) {
+	.card-list{
+		@include gridarea(2,4)
+	}
+		
+		.card--box-a{
+			grid-area: 1 / 1 /span 1 /span 2;
+		}
+		
+		.card--box-b{
+			grid-area: 1 / 3 /span 1 /span 1;
+		}
+		
+		.card--box-c{
+			grid-area: 2 / 1 /span 1 /span 1;
+		}
+		
+		.card--box-d{
+			grid-area: 2 / 2 /span 2 /span 2;
+		}
+		
+		.card--box-e{
+			grid-area: 1 / 4 /span 2 /span 1;
+		}
+		
+		
+		.footer{
+			display: flex;
+			justify-content: space-between;
+			margin: 20px;
+			padding: 20px;
+		}
+		.footer ul{
+			list-style: none;
+			display: flex;
+			margin:20px;
+			padding: 20px;
+			
+		}
+		
 }

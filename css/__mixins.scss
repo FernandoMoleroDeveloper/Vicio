@@ -1,5 +1,18 @@
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin flex-left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
+
+@mixin card-structure {
+  border-radius: 25px;
+  padding: 2em;
+  margin: 0.5em;
+}
+
+@mixin gridarea($columns, $rows){
+  display: grid;
+  grid-template-columns:repeat($columns 1fr);
+  grid-template-rows: repeat($rows 1fr);
+}
+
